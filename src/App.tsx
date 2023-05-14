@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import noteModel from './models/noteModel';
+import Header from './components/Header';
 
-function App() {
+const demoData = [
+  {
+    id: (new Date).toString(),
+    title: 'meeting',
+    text: 'Schedule meeting with IS team.',
+    color: '#dfdfdf',
+    date: (new Date).toString()
+  }
+]
+
+export const App = (): JSX.Element => {
+  const [notes, setNotes] = useState<noteModel[]>(demoData)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
