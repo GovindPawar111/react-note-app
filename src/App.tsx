@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import noteModel from './models/noteModel';
-import Header from './components/Header';
-import NotesList from './components/NotesList';
-import { Col, Container, Row } from 'react-bootstrap';
-import CreateNote from './components/CreateNote';
-import EmptyNoteMessage from './components/EmptyNoteMessage';
+import React, { useState } from 'react'
+import noteModel from './models/noteModel'
+import Header from './components/Header'
+import NotesList from './components/NotesList'
+import { Col, Container, Row } from 'react-bootstrap'
+import CreateNote from './components/CreateNote'
+import EmptyNoteMessage from './components/EmptyNoteMessage'
 
 export const App = (): JSX.Element => {
 	const [notes, setNotes] = useState<noteModel[]>([])
@@ -18,14 +18,15 @@ export const App = (): JSX.Element => {
 			<Container>
 				<Row>
 					<Col>
-						<h2 style={{ marginTop: '100px' }}>
-							Notes
-						</h2>
-						{
-							notes.length > 0 
-							? <NotesList notes={notes} onHandleDelete={handleDelete} /> 
-							: <EmptyNoteMessage />
-						}
+						<h2 style={{ marginTop: '100px' }}>Notes</h2>
+						{notes.length > 0 ? (
+							<NotesList
+								notes={notes}
+								onHandleDelete={handleDelete}
+							/>
+						) : (
+							<EmptyNoteMessage />
+						)}
 					</Col>
 				</Row>
 				<Row>
@@ -35,7 +36,7 @@ export const App = (): JSX.Element => {
 				</Row>
 			</Container>
 		</>
-	);
+	)
 }
 
-export default App;
+export default App
